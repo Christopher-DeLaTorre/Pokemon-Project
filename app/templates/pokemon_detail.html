@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<p><em>Let's have a look at {{pokemon.name}}!</em></p>
+
+<h2>Details:</h2>
+<div class='pokemon-detail-section '>
+    <p><img src="{{ pokemon.photo_url }} " width="350px" height="350px" class="pokemon-detail-card"></p>
+    <p><strong>Name:</strong> {{pokemon.name}}</p>
+    <p><strong>Attack:</strong> {{pokemon.attack}}</p>
+    <p><strong>Defense:</strong> {{pokemon.defense}}</p>
+    <p><strong>HP:</strong> {{pokemon.hp}}</p>
+    <p><strong>Type:</strong> {{pokemon.typing}}</p>
+    <p><strong>Moves:</strong> Currently has {{pokemon.moves|length}} moves</p>
+
+</div>
+
+<div class='moves-list'>
+    {% for move in pokemon.moves %}
+    <fieldset>
+        <legend>{{move.name}}</legend>
+
+        <p><strong>Type: </strong>{{move.typing}}</p>
+        <p><strong>Power: </strong>{{move.power}}</p>
+    </fieldset>
+    {% endfor %}
+</div>
+
+<a href="/new_move/{{pokemon.id}}">Add Move</a>
+{% endblock %}

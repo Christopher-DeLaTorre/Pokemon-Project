@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Your Pokedex</h1>
+
+<p><em>Your Pokemon Party!</em></p>
+
+<h2>All Pokemon</h2>
+
+<div class='pokemon-card-section'>
+    {% for pokemon in user_party %}
+    <div class="pokemon-card">
+        
+        <!-- {{ pokemon.photo_url}} -->
+        <p><img src="{{ pokemon.photo_url }}" width="250px" height="250px"></p>
+
+        <h3>{{ pokemon.name }}</h3>
+
+        <a href="/pokemon_detail/{{ pokemon.id }}">See details</a> 
+        
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

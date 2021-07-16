@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('main.new_pokemon') }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Enter a Pokemon</legend>
+
+        {{ form.name.label }}
+        {{ form.name }}
+        <ul>
+            {% for error in form.name.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form.attack.label }}
+        {{ form.attack }}
+        <ul>
+            {% for error in form.attack.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form.defense.label }}
+        {{ form.defense }}
+        <ul>
+            {% for error in form.defense.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form.hp.label }}
+        {{ form.hp }}
+        <ul>
+            {% for error in form.hp.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+        
+        {{ form.typing.label }}
+        {{ form.typing }}
+        <ul>
+            {% for error in form.typing.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form.photo_url.label }}
+        {{ form.photo_url }}
+        <ul>
+            {% for error in form.photo_url.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+        </ul>
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}
